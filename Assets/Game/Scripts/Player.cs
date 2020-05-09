@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,15 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
+        if (Input.GetMouseButtonDown(0)) {
+            Ray rayOrign = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            RaycastHit hitInfo;
+
+            if (Physics.Raycast(rayOrign, out hitInfo)) {
+                Debug.Log("Hit: " + hitInfo.transform.name);
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;

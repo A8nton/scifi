@@ -121,6 +121,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 1902692a514eca04292b84263738efb7, type: 2}
+--- !u!1 &57614449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1174503903678904, guid: 93fb048d0136f084cb1f783ca99e5ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 127425653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &57614452
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57614449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1028886, y: 2.6563401, z: 1}
+  m_Center: {x: 0.010144472, y: 0.82817006, z: 0}
 --- !u!1001 &124838272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -643,6 +662,25 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &604187413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1821605798532626, guid: 93fb048d0136f084cb1f783ca99e5ea7,
+    type: 3}
+  m_PrefabInstance: {fileID: 127425653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &604187414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604187413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1145885, y: 2.9429717, z: 1}
+  m_Center: {x: -0.093005985, y: 0.97148585, z: 0.0000000015955433}
 --- !u!1 &605797436
 GameObject:
   m_ObjectHideFlags: 0
