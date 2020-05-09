@@ -6,10 +6,10 @@ public class LookY : MonoBehaviour {
     private float _sensitivity = 2f;
 
     void Update() {
-        float _mouseY = Input.GetAxis("Mouse Y") * -1;
+        float _mouseY = Input.GetAxis("Mouse Y");
 
         Vector3 angles = transform.localEulerAngles;
-        angles.x += _mouseY * _sensitivity;
+        angles.x -= _mouseY * _sensitivity;
         transform.localEulerAngles = angles;
     }
 }
