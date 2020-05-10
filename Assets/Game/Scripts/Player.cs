@@ -13,6 +13,8 @@ public class Player : MonoBehaviour {
     private GameObject _muzzleFire;
     [SerializeField]
     private GameObject _hitMarkerPrefab;
+    [SerializeField]
+    private AudioSource _audioSource;
 
     void Start() {
         _muzzleFire.SetActive(false);
@@ -23,6 +25,9 @@ public class Player : MonoBehaviour {
 
     void Update() {
         if (Input.GetMouseButton(0)) {
+            if (!_audioSource.isPlaying) {
+                _audioSource.Play();
+            }
             _muzzleFire.SetActive(true);
             Ray rayOrign = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hitInfo;
@@ -35,6 +40,7 @@ public class Player : MonoBehaviour {
         }
         else {
             _muzzleFire.SetActive(false);
+            _audioSource.Stop();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -47,5 +53,5 @@ public class Player : MonoBehaviour {
 
         velocity = transform.transform.TransformDirection(velocity);
         _controller.Move(velocity * Time.deltaTime);
-    } 
+    }
 }
