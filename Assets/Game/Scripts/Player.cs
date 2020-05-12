@@ -24,6 +24,7 @@ public class Player : MonoBehaviour {
     private UiManager _uiManager;
     [SerializeField]
     private Animator _animator;
+    public bool hasCoin;
 
     void Start() {
         _muzzleFire.SetActive(false);
