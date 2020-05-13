@@ -90,7 +90,7 @@ public class Player : MonoBehaviour {
         _currentAmmo = _currentAmmo + Mathf.Min(neededAmmo, _totalAmmo);
         _totalAmmo = Mathf.Max(_totalAmmo - neededAmmo, 0);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         _uiManager.UpdateAmmo(_currentAmmo, _totalAmmo);
         _canFire = true;
     }
