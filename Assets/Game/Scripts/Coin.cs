@@ -8,6 +8,8 @@ public class Coin : MonoBehaviour {
     private AudioClip _pickupClip;
     [SerializeField]
     private GameObject _popupText;
+    [SerializeField]
+    private GameObject _inventoryCoin;
 
     public void OnTriggerStay(Collider other) {
         if (other.CompareTag("Player")) {
@@ -15,6 +17,7 @@ public class Coin : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.E)) {
                 Player player = GameObject.Find("Player").GetComponent<Player>();
+                _inventoryCoin.SetActive(true);
 
                 if (!player.hasCoin) {
                     _popupText.SetActive(false);
