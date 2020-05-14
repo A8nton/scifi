@@ -23,6 +23,8 @@ public class Player : MonoBehaviour {
     private UiManager _uiManager;
     [SerializeField]
     private Animator _animator;
+    [SerializeField]
+    private GameObject _weapon;
     public bool hasCoin;
     private bool _canFire;
     private float _timeToFire;
@@ -60,13 +62,13 @@ public class Player : MonoBehaviour {
         velocity = transform.transform.TransformDirection(velocity);
         _controller.Move(velocity * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.R) && _totalAmmo > 0 && !_muzzleFire.activeSelf) {
+        if (Input.GetKeyDown(KeyCode.R) && _totalAmmo > 0 && !_muzzleFire.activeSelf && _weapon.activeSelf) {
             StartCoroutine(ReloadCoroutine());
         }
     }
 
     void Shoot() {
-        if (_canFire && Time.time >= _timeToFire) {
+        if (_canFire && Time.time >= _timeToFire && _weapon.activeSelf) {
             _timeToFire = Time.time + _firePause;
             _currentAmmo--;
             if (!_audioSource.isPlaying) {
