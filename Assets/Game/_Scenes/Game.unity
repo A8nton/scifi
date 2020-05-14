@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a1323345502bf741a360b23b60a764e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weapon: {fileID: 526216671}
+  _inventoryCoin: {fileID: 1981923066}
 --- !u!54 &57614454
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -181,7 +183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1303171181363726, guid: 88bae2de7f0014e4fa5e93fd72610be7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4299597056823038, guid: 88bae2de7f0014e4fa5e93fd72610be7, type: 3}
       propertyPath: m_LocalPosition.x
