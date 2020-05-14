@@ -17,14 +17,16 @@ public class Player : MonoBehaviour {
     private AudioSource _audioSource;
     [SerializeField]
     private int _currentAmmo;
-    private int _maxAmmo = 100;
+    private int _maxAmmo = 50;
     [SerializeField]
     private int _totalAmmo;
-    private bool _canFire;
     private UiManager _uiManager;
     [SerializeField]
     private Animator _animator;
     public bool hasCoin;
+    private bool _canFire;
+    private float _timeToFire;
+    private float _firePause = 0.1f;
 
     void Start() {
         _muzzleFire.SetActive(false);
@@ -58,13 +60,14 @@ public class Player : MonoBehaviour {
         velocity = transform.transform.TransformDirection(velocity);
         _controller.Move(velocity * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.R) && _totalAmmo > 0) {
+        if (Input.GetKeyDown(KeyCode.R) && _totalAmmo > 0 && !_muzzleFire.activeSelf) {
             StartCoroutine(ReloadCoroutine());
         }
     }
 
     void Shoot() {
-        if (_canFire) {
+        if (_canFire && Time.time >= _timeToFire) {
+            _timeToFire = Time.time + _firePause;
             _currentAmmo--;
             if (!_audioSource.isPlaying) {
                 _audioSource.Play();
@@ -83,8 +86,8 @@ public class Player : MonoBehaviour {
     }
 
     IEnumerator ReloadCoroutine() {
-        _animator.Play("Reload_anim");
         _canFire = false;
+        _animator.Play("Reload_anim");
         int neededAmmo = _maxAmmo - _currentAmmo;
 
         _currentAmmo = _currentAmmo + Mathf.Min(neededAmmo, _totalAmmo);
