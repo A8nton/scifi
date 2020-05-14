@@ -4400,6 +4400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ammoText: {fileID: 1543094404}
+  _coin: {fileID: 1981923066}
 --- !u!1001 &464434501
 PrefabInstance:
   m_ObjectHideFlags: 0
