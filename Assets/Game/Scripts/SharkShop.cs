@@ -8,15 +8,26 @@ public class SharkShop : MonoBehaviour {
     private GameObject _weapon;
     [SerializeField]
     private GameObject _inventoryCoin;
+    [SerializeField]
+    private GameObject _buyText;
 
     public void OnTriggerStay(Collider other) {
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E)) {
-            Player player = GameObject.Find("Player").GetComponent<Player>();
-            if (player.hasCoin) {
-                _weapon.SetActive(true);
-                player.hasCoin = false;
-                _inventoryCoin.SetActive(false);
+        if (other.CompareTag("Player")) {
+            _buyText.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.E)) {
+                Player player = GameObject.Find("Player").GetComponent<Player>();
+
+                if (player.hasCoin) {
+                    _weapon.SetActive(true);
+                    player.hasCoin = false;
+                    _inventoryCoin.SetActive(false);
+                }
             }
         }
+    }
+
+    public void OnTriggerExit(Collider other) {
+        _buyText.SetActive(false);
     }
 }
