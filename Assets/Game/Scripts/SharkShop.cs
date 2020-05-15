@@ -16,6 +16,7 @@ public class SharkShop : MonoBehaviour {
             _buyText.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.E)) {
+                GetComponent<AudioSource>().Play();
                 Player player = GameObject.Find("Player").GetComponent<Player>();
 
                 if (player.hasCoin) {
